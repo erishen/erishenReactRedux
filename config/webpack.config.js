@@ -77,10 +77,10 @@ if (__TEST__ && !argv.watch) {
         // from running making it clear that there were warnings.
         throw new Error(
           stats.compilation.errors.map(err => err.message || err)
-        )
+        );
       }
-    })
-  })
+    });
+  });
 }
 
 if (__DEV__) {
@@ -88,7 +88,7 @@ if (__DEV__) {
   webpackConfig.plugins.push(
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
-  )
+  );
 } else if (__PROD__) {
   debug('Enabling plugins for production (OccurenceOrder, Dedupe & UglifyJS).');
   webpackConfig.plugins.push(
@@ -102,7 +102,7 @@ if (__DEV__) {
       }
     }),
     new webpack.optimize.AggressiveMergingPlugin()
-  )
+  );
 }
 
 // Don't split bundles during testing, since we only want import one bundle
@@ -111,7 +111,7 @@ if (!__TEST__) {
     new webpack.optimize.CommonsChunkPlugin({
       names : ['vendor']
     })
-  )
+  );
 }
 
 // ------------------------------------
@@ -205,14 +205,14 @@ if (!__DEV__) {
     const first = loader.loaders[0];
     const rest = loader.loaders.slice(1);
     loader.loader = ExtractTextPlugin.extract(first, rest.join('!'));
-    delete loader.loaders
+    delete loader.loaders;
   });
 
   webpackConfig.plugins.push(
     new ExtractTextPlugin('[name].[contenthash].css', {
       allChunks : true
     })
-  )
+  );
 }
 
 module.exports = webpackConfig;

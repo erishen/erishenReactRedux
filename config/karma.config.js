@@ -67,7 +67,7 @@ if (project.globals.__COVERAGE__) {
     query   : Object.assign({}, project.compiler_babel, {
       plugins : (project.compiler_babel.plugins || []).concat('istanbul')
     })
-  }]
+  }];
 }
 
 module.exports = (cfg) => cfg.set(karmaConfig);

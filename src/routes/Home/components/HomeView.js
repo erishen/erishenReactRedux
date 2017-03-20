@@ -1,9 +1,9 @@
-import React from 'react'
-import DuckImage from '../assets/Duck.jpg'
-import './HomeView.scss'
+import React from 'react';
+import DuckImage from '../assets/Duck.jpg';
+import './HomeView.scss';
 
 export const HomeView = () => (
-  <div id="home_head_operate">
+  <div id='home_head_operate'>
     <h4>Welcome!</h4>
     <img
       alt='This is a duck, because Redux!'
@@ -12,4 +12,4 @@ export const HomeView = () => (
   </div>
 );
 
-export default HomeView
+export default HomeView;

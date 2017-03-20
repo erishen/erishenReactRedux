@@ -1,4 +1,4 @@
-var _ = require ('lodash');
+var _ = require('lodash');
 import fetch from '../../../utils/fetch';
 
 // ------------------------------------
@@ -17,20 +17,19 @@ export const LOGIN_SUBMIT = 'LOGIN_SUBMIT';
 export const loginSubmit = (body) => {
   return (dispatch, getState) => {
     return new Promise((resolve) => {
-        console.log('loginSubmit', body);
+      console.log('loginSubmit', body);
 
-        fetch('loginPost', {body}).then((result)=>{
-          console.log('fetchResult_result: ', result);
+      fetch('loginPost', { body }).then((result) => {
+        console.log('fetchResult_result: ', result);
 
-          dispatch({
-            type    : LOGIN_SUBMIT,
-            payload : result
-          });
-
-          resolve('successfully');
+        dispatch({
+          type    : LOGIN_SUBMIT,
+          payload : result
         });
-    })
-  }
+        resolve('successfully');
+      });
+    });
+  };
 };
 
 export const actions = {
@@ -57,5 +56,5 @@ const initialState = null;
 export default function counterReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type];
 
-  return handler ? handler(state, action) : state
+  return handler ? handler(state, action) : state;
 }

@@ -1,7 +1,7 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import createStore from './store/createStore'
-import AppContainer from './containers/AppContainer'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import createStore from './store/createStore';
+import AppContainer from './containers/AppContainer';
 
 // Erishen:: Promise 浏览器兼容: https://github.com/taylorhakes/promise-polyfill
 import Promise from 'promise-polyfill';
@@ -18,10 +18,10 @@ localStorage.setItem('debug', 'leancloud*');
 
 const appId = '0AwRKRTHbBvAUP8D8VaxJhzs-gzGzoHsz';
 const appKey = 'MGGIMS48nNIh8dBK4r1vMRfu';
-AV.init({ appId, appKey });
+window.AV.init({ appId, appKey });
 
 /*
-var TestObject = AV.Object.extend('TestObject');
+var TestObject = window.AV.Object.extend('TestObject');
 var testObject = new TestObject();
 testObject.save({
   words: 'Hello World!'
@@ -29,6 +29,7 @@ testObject.save({
   alert('LeanCloud Rocks!');
 });
 */
+
 
 // ========================================================
 // Store Instantiation
@@ -47,7 +48,7 @@ let render = () => {
   ReactDOM.render(
     <AppContainer store={store} routes={routes} />,
     MOUNT_NODE
-  )
+  );
 };
 
 // This code is excluded from production bundle
@@ -58,16 +59,16 @@ if (__DEV__) {
     const renderError = (error) => {
       const RedBox = require('redbox-react').default;
 
-      ReactDOM.render(<RedBox error={error} />, MOUNT_NODE)
+      ReactDOM.render(<RedBox error={error} />, MOUNT_NODE);
     };
 
     // Wrap render in try/catch
     render = () => {
       try {
-        renderApp()
+        renderApp();
       } catch (error) {
         console.error(error);
-        renderError(error)
+        renderError(error);
       }
     };
 
@@ -75,9 +76,9 @@ if (__DEV__) {
     module.hot.accept('./routes/index', () =>
       setImmediate(() => {
         ReactDOM.unmountComponentAtNode(MOUNT_NODE);
-        render()
+        render();
       })
-    )
+    );
   }
 }
 

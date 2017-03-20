@@ -1,4 +1,4 @@
-import { injectReducer } from '../../store/reducers'
+import { injectReducer } from '../../store/reducers';
 
 export default (store) => ({
   path : 'counter',
@@ -19,6 +19,6 @@ export default (store) => ({
       cb(null, Counter);
 
     /* Webpack named bundle   */
-    }, 'counter')
+    }, 'counter');
   }
-})
+});

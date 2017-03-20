@@ -1,6 +1,6 @@
-import React from 'react'
-import { IndexLink, Link } from 'react-router'
-import './Header.scss'
+import React from 'react';
+import { IndexLink, Link } from 'react-router';
+import './Header.scss';
 
 export const Header = () => (
   <div>
@@ -19,4 +19,4 @@ export const Header = () => (
   </div>
 );
 
-export default Header
+export default Header;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export const Counter = (props) => (
   <div style={{ margin: '0 auto' }} >
@@ -19,4 +19,4 @@ Counter.propTypes = {
   increment   : React.PropTypes.func.isRequired
 };
 
-export default Counter
+export default Counter;

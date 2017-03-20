@@ -1,3 +1,3 @@
-exports.index = function(app, paramObj){
+exports.index = function (app, paramObj) {
 
 };

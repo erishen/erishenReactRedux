@@ -3,7 +3,7 @@ import './LoginView.scss';
 var Hashes = require('jshashes');
 
 export default class LoginView extends Component {
-  constructor(props){
+  constructor (props) {
     super(props);
     this.state = {
       userName: '',
@@ -12,7 +12,7 @@ export default class LoginView extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps){
+  componentWillReceiveProps (nextProps) {
     console.log('componentWillReceiveProps: ', nextProps);
     var login = nextProps.login;
     this.setState({
@@ -20,49 +20,50 @@ export default class LoginView extends Component {
     });
   }
 
-  doSubmit(){
+  doSubmit () {
     var { userName, userPassword } = this.state;
-    //console.log('doSubmit: ' + userName + ', ' + userPassword);
+    // console.log('doSubmit: ' + userName + ', ' + userPassword);
 
     var data = {
       name: userName,
       pass: new Hashes.SHA1().hex(userPassword)
     };
 
-    this.props.loginSubmit(data).then((result)=>{
+    this.props.loginSubmit(data).then((result) => {
       console.log('loginSubmit_result: ' + result);
     });
   }
 
-  doCancel(){
+  doCancel () {
     this.setState({
       userName: '',
       userPassword: ''
     });
   }
 
-  changeName(e){
+  changeName (e) {
     this.setState({
       userName: e.target.value
     });
   }
 
-  changePassword(e){
+  changePassword (e) {
     this.setState({
       userPassword: e.target.value
     });
   }
 
-  render() {
+  render () {
     var { userName, userPassword, userObj } = this.state;
 
     return (
       <div>
-        {!userObj && <div className="login_area">
-          <input type="text" id="userName" placeholder="Name" value={userName} onChange={::this.changeName} />
-          <input type="password" id="userPassword" placeholder="Password" value={userPassword} onChange={::this.changePassword} />
-          <button onClick={::this.doSubmit}>Submit</button>
-          <button onClick={::this.doCancel}>Cancel</button>
+        {!userObj && <div className='login_area'>
+          <input type='text' id='userName' placeholder='Name' value={userName} onChange={(e) => this.changeName(e)} />
+          <input type='password' id='userPassword' placeholder='Password' value={userPassword}
+            onChange={(e) => this.changePassword(e)} />
+          <button onClick={() => this.doSubmit}>Submit</button>
+          <button onClick={() => this.doCancel}>Cancel</button>
         </div>}
         {userObj && <div>
           {userObj.Name}
@@ -71,3 +72,7 @@ export default class LoginView extends Component {
     );
   }
 }
+
+LoginView.propTypes = {
+  loginSubmit     : React.PropTypes.func.isRequired
+};

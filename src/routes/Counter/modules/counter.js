@@ -11,7 +11,7 @@ export function increment (value = 1) {
   return {
     type    : COUNTER_INCREMENT,
     payload : value
-  }
+  };
 }
 
 /*  This is a thunk, meaning it is a function that immediately
@@ -26,10 +26,10 @@ export const doubleAsync = () => {
           type    : COUNTER_DOUBLE_ASYNC,
           payload : getState().counter
         });
-        resolve()
-      }, 200)
-    })
-  }
+        resolve();
+      }, 200);
+    });
+  };
 };
 
 export const actions = {
@@ -52,5 +52,5 @@ const initialState = 0;
 export default function counterReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type];
 
-  return handler ? handler(state, action) : state
+  return handler ? handler(state, action) : state;
 }

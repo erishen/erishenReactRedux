@@ -99,7 +99,7 @@ config.compiler_vendors = config.compiler_vendors
       `Package "${dep}" was not found as an npm dependency in package.json; ` +
       `it won't be included in the webpack vendor bundle.
        Consider removing it from \`compiler_vendors\` in ~/config/index.js`
-    )
+    );
   });
 
 // ------------------------------------
@@ -107,7 +107,7 @@ config.compiler_vendors = config.compiler_vendors
 // ------------------------------------
 function base () {
   const args = [config.path_base].concat([].slice.call(arguments));
-  return path.resolve.apply(path, args)
+  return path.resolve.apply(path, args);
 }
 
 config.paths = {
@@ -125,9 +125,9 @@ const environments = require('./environments.config');
 const overrides = environments[config.env];
 if (overrides) {
   debug('Found overrides, applying to default configuration.');
-  Object.assign(config, overrides(config))
+  Object.assign(config, overrides(config));
 } else {
-  debug('No environment overrides found, defaults will be used.')
+  debug('No environment overrides found, defaults will be used.');
 }
 
 module.exports = config;

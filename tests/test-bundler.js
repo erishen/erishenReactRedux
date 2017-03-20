@@ -1,11 +1,11 @@
 // ---------------------------------------
 // Test Environment Setup
 // ---------------------------------------
-import sinon from 'sinon'
-import chai from 'chai'
-import sinonChai from 'sinon-chai'
-import chaiAsPromised from 'chai-as-promised'
-import chaiEnzyme from 'chai-enzyme'
+import sinon from 'sinon';
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
+import chaiAsPromised from 'chai-as-promised';
+import chaiEnzyme from 'chai-enzyme';
 
 chai.use(sinonChai);
 chai.use(chaiAsPromised);
@@ -33,5 +33,5 @@ const testsToRun = testsContext.keys().filter(inManifest)
 // require all `src/**/*.js` except for `main.js` (for isparta coverage reporting)
 if (__COVERAGE__) {
   const componentsContext = require.context('../src/', true, /^((?!main|reducers).)*\.js$/);
-  componentsContext.keys().forEach(componentsContext)
+  componentsContext.keys().forEach(componentsContext);
 }
