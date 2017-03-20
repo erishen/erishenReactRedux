@@ -1,0 +1,26 @@
+.login_area {
+  float: right;
+  border: 1px solid black;
+  width: 300px;
+  height: 200px;
+  padding: 50px;
+
+  input {
+    margin-bottom: 10px;
+  }
+
+  button {
+    float: right;
+    margin-top: 10px;
+    margin-left: 5px;
+  }
+
+  #userName {
+    width: 200px;
+  }
+
+  #userPassword {
+    width: 200px;
+  }
+}
+
